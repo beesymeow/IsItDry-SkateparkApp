@@ -1,16 +1,25 @@
 package com.example.skateparkisitdry
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.skateparkisitdry.ui.theme.SkateparkIsItDryTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +28,34 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SkateparkIsItDryTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    ) {
+                HomeScreen()
 
-                    )
-                }
             }
         }
     }
 }
 
 @Composable
-fun SkateparkWet(name: String, modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) {
+    var isWet by remember { mutableStateOf(false) }
+
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        text = "Skatepark"
     )
+
+    Button(
+        onClick = { isWet = true },
+        modifier = Modifier.fillMaxWidth().height(56.dp),
+    )
+    {
+        Text("Wet?")
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun SkateparkView() {
+fun HomeScreenView() {
     SkateparkIsItDryTheme {
-        Greeting("Android")
+        HomeScreen()
     }
 }
