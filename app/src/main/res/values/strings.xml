@@ -3,4 +3,5 @@
     <string name="status_wet">Status: Wet</string>
     <string name="status_dry">Status: Dry</string>
     <string name="wet_questionmark">Wet?</string>
+    <string name="status_unknown">UNKNOWN\n</string>
 </resources>
