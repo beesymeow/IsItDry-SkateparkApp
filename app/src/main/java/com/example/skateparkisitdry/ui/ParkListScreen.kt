@@ -1,5 +1,6 @@
 package com.example.skateparkisitdry.ui
 
+import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -58,6 +59,7 @@ private fun ParkCard( // Model of skatepark details card
             Text(text = park.name, style = MaterialTheme.typography.titleMedium) // Park name larger
             Text(
                 text = park.address, // Address smaller
+                modifier = Modifier.basicMarquee(),
                 style = MaterialTheme.typography.bodySmall,
                 maxLines = 1, // Only display for one line
                 overflow = TextOverflow.Ellipsis // If goes off screen show ...
