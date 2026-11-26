@@ -3,5 +3,7 @@
     <string name="status_wet">Status: Wet</string>
     <string name="status_dry">Status: Dry</string>
     <string name="wet_questionmark">Wet?</string>
-    <string name="status_unknown">UNKNOWN\n</string>
+    <string name="status_unknown">UNKNOWN</string>
+    <string name="screen_park_list">Skateparks</string>
+    <string name="screen_park_detail">Skatepark Details</string>
 </resources>

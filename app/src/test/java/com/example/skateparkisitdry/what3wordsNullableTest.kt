@@ -6,7 +6,7 @@ import org.junit.Assert.assertNull
 import org.junit.Assert.assertNotNull
 
 
-class what3wordsNullTest() {
+class what3wordsNullableTest() {
 
 
     @Test
