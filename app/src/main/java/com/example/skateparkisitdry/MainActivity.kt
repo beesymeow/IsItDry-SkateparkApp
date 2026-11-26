@@ -21,7 +21,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.skateparkisitdry.data.testParks
 import com.example.skateparkisitdry.ui.theme.SkateparkIsItDryTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +69,7 @@ fun HomeContent( // Drawn app with info
                 .padding(24.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp) // distance above items below
         ) {
-            Text(text = uiState.parkName)  // Park name
+            Text(text = uiState.park.name)  // Park name
             Text(text = stringResource(statusText)) //Park status
             Button(
                 onClick = onWetClick, // When pressed report park is wet
@@ -90,6 +92,6 @@ fun HomeContent( // Drawn app with info
 @Composable
 fun HomeContentView() {
     SkateparkIsItDryTheme {
-        HomeContent(uiState = HomeUiState(), onWetClick = {})
+        HomeContent(uiState = HomeUiState(park = testParks.first()), onWetClick = {})
     }
 }
