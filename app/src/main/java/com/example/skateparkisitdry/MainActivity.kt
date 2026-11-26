@@ -21,7 +21,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.skateparkisitdry.data.testParks
+import com.example.skateparkisitdry.ui.ParkListScreen
+import com.example.skateparkisitdry.ui.ParkScreen
 import com.example.skateparkisitdry.ui.theme.SkateparkIsItDryTheme
 
 
@@ -31,12 +37,36 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SkateparkIsItDryTheme {
-                HomeScreen()
+                SkateparkApp()
 
             }
         }
     }
 }
+
+@Composable
+fun SkateparkApp(
+    navController: NavHostController = rememberNavController()
+) {
+    NavHost(
+        navController = navController,
+        startDestination = ParkScreen.ParkList.name
+    ) {
+        composable(route = ParkScreen.ParkList.name){
+            ParkListScreen(
+                parks = testParks,
+                onParkClick = { parkId ->
+                    navController.navigate(ParkScreen.ParkDetail.name)
+                }
+            )
+        }
+
+        composable(route = ParkScreen.ParkDetail.name){
+            HomeScreen()
+        }
+    }
+}
+
 
 @Composable
 fun HomeScreen ( // Connect ViewModel and UI
